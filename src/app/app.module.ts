@@ -14,6 +14,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const appRoutes: Routes = [
   { path: 'content', component: PostComponent },
   { path: 'about', component: AboutComponent },
+  { path: '',   redirectTo: 'content', pathMatch: 'full' },
+  { path: 'index',   redirectTo: 'content', pathMatch: 'prefix' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
