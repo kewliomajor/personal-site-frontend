@@ -10,6 +10,7 @@ import { SettingsComponent } from './admin-components/settings/settings.componen
 import { PostComponent } from './content/post/post.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {HttpModule} from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'content', component: PostComponent },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true }
     ),
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
