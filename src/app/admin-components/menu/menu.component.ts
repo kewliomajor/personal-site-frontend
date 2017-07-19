@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  numPosts: number;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setNumPosts(numPosts: number) {
+    this.numPosts = numPosts;
   }
 
 }

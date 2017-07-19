@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostService} from '../../service/post.service';
 import {Post} from '../../model/post';
 
@@ -9,10 +9,7 @@ import {Post} from '../../model/post';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  Title: String;
-  Date: String;
-  Text: String;
-  private posts: Post[];
+  posts: Post[];
 
   constructor(private postService: PostService) { }
 
@@ -21,16 +18,6 @@ export class PostComponent implements OnInit {
       .getAll()
       .subscribe(posts => {
         this.posts = posts;
-        this.configurePosts();
       });
   }
-
-  configurePosts() {
-    for (const post of this.posts) {
-      this.Title = post.title;
-      this.Date = post.created;
-      this.Text = post.text;
-    }
-  }
-
 }

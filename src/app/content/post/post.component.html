@@ -1,13 +1,16 @@
-<h1>
-  {{Title}}
-</h1>
-<ol class="breadcrumb">
-  <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-  <li class="active">New Page</li>
-</ol>
-<h3>
-  {{Date}}
-</h3>
-<p>
-  {{Text}}
-</p>
+
+<div *ngFor="let post of posts">
+  <h1>
+    {{post.title}}
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">New Page</li>
+  </ol>
+  <strong>
+    {{post.created}}
+  </strong>
+  <p>
+    {{post.text}}
+  </p>
+</div>
