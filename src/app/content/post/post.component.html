@@ -3,14 +3,14 @@
   <h1>
     {{post.title}}
   </h1>
-  <ol class="breadcrumb">
+  <!--<ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">New Page</li>
-  </ol>
+    <li class="active">{{post.title}}</li>
+  </ol>-->
   <strong>
     {{post.created}}
   </strong>
-  <p>
-    {{post.text}}
+  <p *ngFor="let text of post.posts">
+    {{text.text}}
   </p>
 </div>
