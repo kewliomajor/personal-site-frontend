@@ -1,6 +1,7 @@
-import {PostText} from './post_text';
+import {PostSection} from './post_section';
 export class Post {
+  uuid: string;
   title: string;
   created: string;
-  posts: PostText[];
+  post_sections: PostSection[];
 }

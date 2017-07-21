@@ -4,7 +4,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiBaseService {
-  protected baseUrl = 'https://rfdkizpb8h.execute-api.us-east-1.amazonaws.com/production';
+  protected baseUrl = 'http://default-environment.qhixrrzf67.us-east-1.elasticbeanstalk.com/api/v1/';
+  // protected baseUrl = 'http://127.0.0.1:8000/api/v1/';
 
   constructor(protected http: Http) {
 
