@@ -6,8 +6,7 @@ import {MenuComponent} from './admin-components/menu/menu.component';
 @Component({
   providers: [PostService],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   private posts: Post[];

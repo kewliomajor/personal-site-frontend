@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BusyModule} from 'angular2-busy';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './admin-components/header/header.component';
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
       { enableTracing: true }
     ),
     BrowserModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    BusyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

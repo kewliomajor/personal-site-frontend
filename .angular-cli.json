@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/angular2-busy/build/style/busy.css",
         "assets/bootstrap/css/bootstrap.min.css",
         "assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css",
         "assets/dist/css/AdminLTE.min.css",
