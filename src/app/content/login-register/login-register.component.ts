@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {DialogRef, ModalComponent, CloseGuard} from 'angular2-modal';
 import {BSModalContext} from 'angular2-modal/plugins/bootstrap';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CustomValidation} from '../../service/validation/custom-validation';
 
 export class CustomModalContext extends BSModalContext {
 
@@ -32,7 +33,8 @@ export class LoginRegisterComponent implements CloseGuard, ModalComponent<Custom
         if (register) {
           this.loginForm.get('password-verify').setValidators([
             Validators.required,
-            Validators.minLength(8)
+            Validators.minLength(8),
+            CustomValidation.equalValidation(this.loginForm.get('password'), this.loginForm.get('password-verify'))
           ]);
           this.loginForm.get('first-name').setValidators([
             Validators.required,
