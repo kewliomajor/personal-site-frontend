@@ -13,6 +13,9 @@ import { PostComponent } from './content/post/post.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HttpModule} from '@angular/http';
+import {ModalModule} from 'angular2-modal';
+import {BootstrapModalModule} from 'angular2-modal/plugins/bootstrap';
+import { LoginRegisterComponent } from './content/login-register/login-register.component';
 
 const appRoutes: Routes = [
   { path: 'content', component: PostComponent },
@@ -31,7 +34,8 @@ const appRoutes: Routes = [
     SettingsComponent,
     PostComponent,
     AboutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginRegisterComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -41,9 +45,12 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
-    BusyModule
+    BusyModule,
+    ModalModule.forRoot(),
+    BootstrapModalModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginRegisterComponent]
 })
 export class AppModule { }
