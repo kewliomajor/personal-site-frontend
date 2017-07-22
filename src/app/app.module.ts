@@ -16,6 +16,7 @@ import {HttpModule} from '@angular/http';
 import {ModalModule} from 'angular2-modal';
 import {BootstrapModalModule} from 'angular2-modal/plugins/bootstrap';
 import { LoginRegisterComponent } from './content/login-register/login-register.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'content', component: PostComponent },
@@ -47,7 +48,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     BusyModule,
     ModalModule.forRoot(),
-    BootstrapModalModule
+    BootstrapModalModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
