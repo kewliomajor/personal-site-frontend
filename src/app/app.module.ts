@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BusyModule} from 'angular2-busy';
@@ -17,6 +17,7 @@ import {ModalModule} from 'angular2-modal';
 import {BootstrapModalModule} from 'angular2-modal/plugins/bootstrap';
 import { LoginRegisterComponent } from './content/login-register/login-register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DefaultErrorHandler} from './service/errors/default_error_handler';
 
 const appRoutes: Routes = [
   { path: 'content', component: PostComponent },
@@ -52,7 +53,9 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: DefaultErrorHandler}
+  ],
   bootstrap: [AppComponent],
   entryComponents: [LoginRegisterComponent]
 })

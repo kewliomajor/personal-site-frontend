@@ -89,7 +89,6 @@ export class LoginRegisterComponent implements CloseGuard, ModalComponent<Custom
   }
 
   onClose() {
-    console.log('closed');
     this.dialog.close(false);
   }
 

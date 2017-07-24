@@ -9,13 +9,13 @@ export class AuthenticationService extends ApiBaseService {
   login(username, password): Observable<Jwt> {
     const paramString = '?username=' + username + '&password=' + password;
     return this.http
-      .get(`${this.baseUrl}auth/login` + paramString)
+      .get(`${this.baseUrl}auth/login` + paramString, this.getHeaders())
       .map(response => this.mapAndSetJwt(response))
   }
 
   register(data): Observable<Jwt> {
     return this.http
-      .post(`${this.baseUrl}auth/register`, data)
+      .post(`${this.baseUrl}auth/register`, data, this.getHeaders())
       .map(response => this.mapAndSetJwt(response))
   }
 

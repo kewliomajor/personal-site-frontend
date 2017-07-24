@@ -8,7 +8,7 @@ export class PostService extends ApiBaseService {
 
   getAll(): Observable<Post[]> {
     return this.http
-      .get(`${this.baseUrl}webapp/posts`)
+      .get(`${this.baseUrl}webapp/posts`, this.getHeaders())
       .map(response => response.json().data as Post[])
   }
 }

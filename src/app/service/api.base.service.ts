@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {environment} from '../../environments/environment';
-import {Jwt} from '../model/jwt';
 
 @Injectable()
 export class ApiBaseService {
@@ -10,5 +9,14 @@ export class ApiBaseService {
 
   constructor(protected http: Http) {
 
+  }
+
+  protected getHeaders() {
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    if (localStorage.getItem('jwt') !== null) {
+      headers.append('Authorization', 'Bearer ' + localStorage.getItem('jwt'));
+    }
+    return {headers: headers};
   }
 }
