@@ -12,4 +12,10 @@ export class GuestbookService extends ApiBaseService {
       .get(`${this.baseUrl}webapp/auth/guestbook`, this.getHeaders())
       .map(response => response.json().data as GuestNote[])
   }
+
+  submitNote(data): Observable<GuestNote> {
+    return this.http
+      .post(`${this.baseUrl}webapp/auth/guestbook`, data, this.getHeaders())
+      .map(response => response.json().data as GuestNote)
+  }
 }
