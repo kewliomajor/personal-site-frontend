@@ -3,7 +3,7 @@
 
   <div class="box box-default" *ngFor="let post of posts">
     <div class="box-header with-boarder">
-      <h3 class="box-title">{{post.title}} - <small>{{post.created}}</small></h3>
+      <h3 class="box-title">{{post.title}} - <small>{{post.created_at}}</small></h3>
     </div>
     <div class="box-body">
       <p *ngFor="let post_section of post.post_sections">

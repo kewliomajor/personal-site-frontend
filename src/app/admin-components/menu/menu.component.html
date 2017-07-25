@@ -40,12 +40,24 @@
         </ul>
       </li>-->
       <li>
+        <a routerLink="/home" routerLinkActive="active">
+          <i class="fa fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
         <a routerLink="/content" routerLinkActive="active">
           <i class="fa fa-files-o"></i>
           <span>Content</span>
           <span class="pull-right-container">
               <span class="label label-primary pull-right">{{numPosts}}</span>
             </span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/guestbook" routerLinkActive="active">
+          <i class="fa fa-pencil-square-o"></i>
+          <span>Guest Book</span>
         </a>
       </li>
       <!--<li>
