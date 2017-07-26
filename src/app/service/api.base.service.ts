@@ -8,12 +8,10 @@ import {CookieMonsterService} from './cookie_monster.service';
 export class ApiBaseService {
   protected baseUrl = environment.baseUrl;
 
-  constructor(protected http: Http, protected cookieMonsterService: CookieMonsterService) {
-
-  }
+  constructor(protected http: Http, protected cookieMonsterService: CookieMonsterService) {}
 
   userIsLoggedIn(): boolean {
-    return this.cookieMonsterService.get() !== null;
+    return this.cookieMonsterService.get() !== undefined;
   }
 
   protected getHeaders() {
