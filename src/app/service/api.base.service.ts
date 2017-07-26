@@ -2,20 +2,25 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {environment} from '../../environments/environment';
+import {CookieMonsterService} from './cookie_monster.service';
 
 @Injectable()
 export class ApiBaseService {
   protected baseUrl = environment.baseUrl;
 
-  constructor(protected http: Http) {
+  constructor(protected http: Http, protected cookieMonsterService: CookieMonsterService) {
 
+  }
+
+  userIsLoggedIn(): boolean {
+    return this.cookieMonsterService.get() !== null;
   }
 
   protected getHeaders() {
     const headers = new Headers();
     headers.append('Accept', 'application/json');
-    if (localStorage.getItem('jwt') !== null) {
-      headers.append('Authorization', 'Bearer ' + localStorage.getItem('jwt'));
+    if (this.userIsLoggedIn()) {
+      headers.append('Authorization', 'Bearer ' + this.cookieMonsterService.get());
     }
     return {headers: headers};
   }

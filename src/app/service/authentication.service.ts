@@ -19,13 +19,13 @@ export class AuthenticationService extends ApiBaseService {
       .map(response => this.mapAndSetJwt(response))
   }
 
-  userIsLoggedIn(): boolean {
-    return localStorage.getItem('jwt') !== null;
+  clearCookies() {
+    this.cookieMonsterService.clear();
   }
 
   private mapAndSetJwt(response) {
     const jwt = response.json().data as Jwt;
-    localStorage.setItem('jwt', jwt.jwt);
+    this.cookieMonsterService.put(jwt.jwt);
     return jwt;
   }
 }

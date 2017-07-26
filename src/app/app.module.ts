@@ -20,6 +20,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DefaultErrorHandler} from './service/errors/default_error_handler';
 import { HomeComponent } from './content/home/home.component';
 import { GuestbookComponent } from './content/guestbook/guestbook.component';
+import {CookieOptions, CookieService} from 'angular2-cookie/core';
+import {CookieMonsterService} from './service/cookie_monster.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -57,10 +59,13 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     BootstrapModalModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
-    {provide: ErrorHandler, useClass: DefaultErrorHandler}
+    {provide: ErrorHandler, useClass: DefaultErrorHandler},
+    CookieService,
+    CookieMonsterService,
+    {provide: CookieOptions, useValue: {}}
   ],
   bootstrap: [AppComponent],
   entryComponents: [LoginRegisterComponent]

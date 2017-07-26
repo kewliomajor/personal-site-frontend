@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
   showLoginPopup() {
     if (this.loggedIn) {
       this.loggedIn = false;
-      localStorage.clear();
+      this.authenticationService.clearCookies();
       this.UserText = 'Login/Register';
       const router = this.injector.get(Router);
       router.navigate(['/home']);
