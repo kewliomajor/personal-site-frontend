@@ -7,9 +7,12 @@ import {Jwt} from '../model/jwt';
 export class AuthenticationService extends ApiBaseService {
 
   login(username, password): Observable<Jwt> {
-    const paramString = '?username=' + username + '&password=' + password;
+    const data = {
+      username: username,
+      password: password
+    };
     return this.http
-      .get(`${this.baseUrl}auth/login` + paramString, this.getHeaders())
+      .post(`${this.baseUrl}auth/login`, data, this.getHeaders())
       .map(response => this.mapAndSetJwt(response))
   }
 
