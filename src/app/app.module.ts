@@ -22,6 +22,7 @@ import { HomeComponent } from './content/home/home.component';
 import { GuestbookComponent } from './content/guestbook/guestbook.component';
 import {CookieOptions, CookieService} from 'angular2-cookie/core';
 import {CookieMonsterService} from './service/cookie_monster.service';
+import { ProfileComponent } from './content/profile/profile.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     LoginRegisterComponent,
     HomeComponent,
-    GuestbookComponent
+    GuestbookComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -68,6 +70,6 @@ const appRoutes: Routes = [
     {provide: CookieOptions, useValue: {}}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoginRegisterComponent]
+  entryComponents: [LoginRegisterComponent, ProfileComponent]
 })
 export class AppModule { }

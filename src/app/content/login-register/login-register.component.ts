@@ -74,22 +74,22 @@ export class LoginRegisterComponent implements CloseGuard, ModalComponent<Custom
   onSubmit(post) {
     if (!post.register) {
       this.busy = this.authService
-        .login(post.username, post.password)
-        .subscribe(jwt => {
-          this.dialog.close(true);
+        .login(post)
+        .subscribe(jwtUser => {
+          this.dialog.close(jwtUser);
         });
     } else {
       console.log(post);
       this.busy = this.authService
         .register(post)
-        .subscribe(jwt => {
-          this.dialog.close(true);
+        .subscribe(jwtUser => {
+          this.dialog.close(jwtUser);
         });
     }
   }
 
   onClose() {
-    this.dialog.close(false);
+    this.dialog.close(null);
   }
 
 }
